@@ -1,0 +1,185 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  font-size: 9px;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  @include transitionAll($fmid_trans);
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+body {
+  font-size: $txt_size2;
+  color: $txt_clr1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-family: inherit;
+  @include transitionAll($fmid_trans);
+}
+
+input,
+textarea {
+  background: none;
+  border: none;
+  outline: none;
+  @include transitionAll($fmid_trans);
+}
+
+.center_sect {
+  margin: auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.defaults {
+  min-height: 50vh;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.img_wrapper {
+  overflow: hidden;
+}
+
+.sect_heading {
+  text-align: center;
+  padding: 20px;
+  font-size: $txt_size9;
+  color: $txt_clr3;
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+}
+
+#loading_sect {
+  display: flex;
+  background-color: $bg_sub;
+  height: 100vh;
+
+  .center_sect {
+    margin: auto;
+    @include flexDisplay(center, center);
+
+    .box {
+      margin: 0 5px;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 5px $box_shd_tint;
+
+      &.red_box {
+        background-color: $spc_clr;
+        animation: loadingAnim 2s linear 0s infinite;
+      }
+
+      &.white_box {
+        background-color: $bg_main;
+        animation: loadingAnim 2s linear 0.3s infinite;
+      }
+
+      &.blue_box {
+        background-color: $acc_clr;
+        animation: loadingAnim 2s linear 0.5s infinite;
+      }
+    }
+  }
+}
+
+#confirm_sect {
+  @include position(fixed, left, top, 0px, 0px);
+  width: 100%;
+  height: 100vh;
+  background-color: $bg_over;
+  z-index: 100;
+  @include flexDisplay(center, center);
+
+  .center_sect {
+    width: 500px;
+    margin: auto;
+    background-color: $bg_main;
+    padding: 20px;
+    text-align: center;
+
+    .heading {
+      text-align: center;
+      color: $txt_clr3;
+      font-size: $txt_size7;
+      margin-bottom: 15px;
+      position: relative;
+
+      .close_btn {
+        align-self: flex-end;
+        @include position(absolute, right, top, 0px, 50%);
+        color: $spc_clr;
+      }
+    }
+
+    .question {
+      font-size: $txt_size5;
+      margin-bottom: 40px;
+    }
+
+    .btns_wrapper {
+      .act_btn {
+        padding: 10px 25px;
+        margin: 0 10px;
+        color: $txt_clr2;
+        border-radius: $brd_rad_small;
+
+        &.yes_btn {
+          background-color: $acc_clr;
+
+          &:hover {
+            background-color: darken($acc_clr, 10);
+          }
+        }
+
+        &.no_btn {
+          background-color: $spc_clr;
+
+          &:hover {
+            background-color: darken($spc_clr, 10);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes loadingAnim {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

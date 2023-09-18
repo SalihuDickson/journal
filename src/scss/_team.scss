@@ -1,0 +1,120 @@
+#team_sect {
+  padding-bottom: 40px;
+
+  .team_info_wrapper {
+    .img_wrapper {
+      height: 350px;
+      float: left;
+      margin-right: 25px;
+      box-shadow: 5px 5px 5px $spc_clr;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .team_info {
+      p {
+        margin-bottom: 10px;
+        line-height: 2.8rem;
+        letter-spacing: 0.1rem;
+      }
+    }
+  }
+
+  .chief_editor_sect {
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr;
+      grid-gap: 20px;
+      align-items: center;
+
+      .main_info {
+        p {
+          margin-bottom: 10px;
+          line-height: 2.8rem;
+          letter-spacing: 0.1rem;
+        }
+
+        header {
+          p {
+            margin-bottom: 5px;
+            line-height: 2rem;
+            font-style: italic;
+
+            &.name {
+              font-weight: bold;
+            }
+
+            &:last-child {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .team_card_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    grid-auto-rows: 300px;
+
+    .team_card {
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      color: white;
+      overflow: hidden;
+      z-index: 1;
+
+      &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient($acc_clr, $spc_clr);
+        @include position(absolute, left, top, 0px, 0px);
+        opacity: 0.2;
+        z-index: -1;
+      }
+
+      &:hover {
+        .full_info {
+          opacity: 1;
+          bottom: 0;
+        }
+
+        .part_info {
+          opacity: 0;
+        }
+      }
+
+      .full_info {
+        @include position(absolute, left, bottom, 0px, -70px);
+        @include transitionCustom(all, ease-in-out, $mslow_trans);
+        opacity: 0;
+      }
+
+      .part_info {
+        @include position(absolute, left, bottom, 0px, 0px);
+        @include transitionAll($mslow_trans);
+      }
+
+      .email {
+        font-style: italic;
+      }
+
+      .part_info,
+      .full_info {
+        background-color: #000000b0;
+        width: 100%;
+        padding: 10px 20px;
+        p {
+          font-size: $txt_size3;
+          letter-spacing: 0.1rem;
+        }
+      }
+    }
+  }
+}

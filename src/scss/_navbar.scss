@@ -1,0 +1,58 @@
+#nav_sect {
+  @include position(sticky, top, left, 0px, 0px);
+  background-color: $bg_main;
+  box-shadow: 0 0 5px $box_shd_tint;
+  z-index: 10;
+
+  .center_sect {
+    padding-block: 10px;
+    @include flexDisplay(center, space-between);
+
+    .logo_btn {
+      display: block;
+      border: 2px solid $box_shd;
+      padding: 10px;
+      border-radius: $brd_rad;
+      font-size: $txt_size_xlrg;
+
+      color: $bg_sub;
+      background-color: $box_shd;
+
+      span {
+        font-family: inherit;
+        color: $spc_clr;
+      }
+    }
+
+    .nav_link {
+      padding: 10px 20px;
+      font-size: $txt_size3;
+      border-bottom: 2px solid transparent;
+      @include transitionAll($fmid_trans);
+
+      &:not(&.login_btn, &.logout_btn):hover {
+        border-color: $spc_clr;
+        color: $spc_clr;
+      }
+
+      &.active:not(&.login_btn.active, &.logout_btn.active) {
+        color: red;
+        pointer-events: none;
+      }
+
+      &.login_btn {
+        background-color: $acc_clr;
+        color: $txt_clr2;
+        border-radius: $brd_rad_small;
+        margin-left: 20px;
+      }
+
+      &.logout_btn {
+        border: 2px solid $acc_clr;
+        color: $acc_clr;
+        border-radius: $brd_rad_small;
+        margin-left: 20px;
+      }
+    }
+  }
+}

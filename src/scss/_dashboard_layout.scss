@@ -1,0 +1,132 @@
+#dashboard_sect {
+  padding-bottom: 30px;
+  .center_sect {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 20px;
+    align-items: flex-start;
+    max-width: 1500px;
+
+    .dashboard_sides {
+      box-shadow: 0 0 10px $box_shd;
+      background-color: $bg_sub2;
+      overflow: hidden;
+    }
+
+    .nav_side {
+      .top_side {
+        height: 100px;
+        @include flexDisplay(center, center, column);
+        text-align: center;
+
+        .user_name {
+          color: $acc_clr;
+        }
+
+        .user_role {
+          color: $txt_clr3;
+          text-transform: capitalize;
+          font-style: italic;
+        }
+
+        .affil {
+          color: $txt_clr3;
+        }
+      }
+
+      .nav_opt {
+        @include flexDisplay(center, flex-start);
+        border-top: 1.5px solid $box_shd_tint;
+        padding: 15px 20px;
+        width: 100%;
+        color: $txt_clr3;
+        position: relative;
+
+        &.active::after {
+          height: 100%;
+          pointer-events: none;
+        }
+
+        &::after {
+          content: '';
+          @include position(absolute, left, top, 0px, 0px);
+          background-color: $acc_clr;
+          width: 5px;
+          height: 0px;
+          @include transitionAll($fmid_trans);
+        }
+
+        &:hover::after {
+          height: 100%;
+        }
+
+        &:nth-child(odd) {
+          background-color: $bg_main;
+        }
+
+        .icon {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .main_side {
+      padding: 20px;
+
+      .header_opts {
+        @include flexDisplay(flex-start, center, column);
+        .sorting {
+          align-self: flex-end;
+          padding: 10px 20px;
+          cursor: pointer;
+          outline: none;
+        }
+
+        .header_opt_wrapper {
+          margin-top: 10px;
+          border: 1px solid $box_shd_tint;
+          display: grid;
+          width: 100%;
+
+          .header_opt {
+            padding: 5px 0;
+            border-right: 1px solid $box_shd_tint;
+            color: $txt_clr3;
+            text-align: center;
+            letter-spacing: 0.1rem;
+            &:last-of-type {
+              border: none;
+            }
+          }
+        }
+      }
+
+      footer {
+        margin-top: 10px;
+        @include flexDisplay(center, space-between);
+
+        .pagination {
+          padding: 10px 20px;
+          cursor: pointer;
+          outline: none;
+        }
+
+        .publish_art_btn {
+          background-color: $acc_clr;
+          padding: 10px 25px;
+          color: $txt_clr2;
+          border-radius: $brd_rad_small;
+
+          &:hover {
+            background-color: darken($acc_clr, 10);
+          }
+        }
+      }
+
+      .table_body {
+        border: 1px solid $box_shd_tint;
+        border-top: none;
+      }
+    }
+  }
+}

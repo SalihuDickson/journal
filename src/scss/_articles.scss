@@ -1,0 +1,273 @@
+#archives_sect {
+  padding-bottom: 40px;
+
+  .center_sect {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 40px;
+    align-items: start;
+
+    .left_side {
+      box-shadow: 0 0 10px $box_shd_tint;
+      padding: 20px;
+      // position: sticky;
+      // top: 120px;
+
+      .search_form {
+        @include flexDisplay(stretch, flex-start);
+        input {
+          border: 2.5px solid $bg_sub;
+          border-right: none;
+          padding: 10px 15px;
+          width: 80%;
+
+          letter-spacing: 0.1rem;
+
+          &:focus {
+            border-color: $acc_clr;
+          }
+        }
+
+        .search_btn {
+          background-color: $acc_clr;
+          display: block;
+          width: 15%;
+          color: $txt_clr2;
+          font-size: $txt_size3;
+        }
+      }
+
+      .filters_wrapper {
+        .filter_wrapper {
+          .heading {
+            margin: 35px 0 15px;
+            background-color: $bg_sub;
+            padding: 10px 20px;
+            color: $txt_clr3;
+            letter-spacing: 0.1rem;
+          }
+
+          .filter_opt {
+            margin-bottom: 10px;
+            @include flexDisplay(center, flex-start);
+            color: $txt_clr3;
+            @include transitionAll($fast_trans);
+
+            &:hover {
+              color: $txt_clr1;
+            }
+
+            input {
+              cursor: pointer;
+            }
+
+            label {
+              padding-left: 15px;
+              cursor: pointer;
+              position: relative;
+              display: block;
+              width: 100%;
+
+              span {
+                @include position(absolute, right, top, 0px, 0px);
+              }
+            }
+          }
+
+          .date_range_wrapper {
+            @include flexDisplay(center, space-between);
+
+            .to_wrapper {
+              text-align: right;
+            }
+
+            .from_wrapper,
+            .to_wrapper {
+              width: 45%;
+
+              h3 {
+                font-size: $txt_size2;
+                color: $txt_clr3;
+                letter-spacing: 0.1rem;
+                margin-bottom: 5px;
+              }
+
+              input {
+                border: 2px solid $box_shd_tint;
+                padding: 10px;
+                cursor: pointer;
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        .filter_btns {
+          margin-top: 20px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 20px;
+
+          .filter_btn {
+            background-color: $acc_clr;
+            padding: 10px 0;
+            border-radius: $brd_rad;
+            color: $txt_clr2;
+          }
+        }
+      }
+    }
+
+    .right_side {
+      box-shadow: 0 0 10px $box_shd_tint;
+      padding: 20px;
+
+      header {
+        margin-bottom: 20px;
+
+        .result_info {
+          color: $txt_clr3;
+          margin-bottom: 15px;
+        }
+
+        // .display_board {
+        //   border: 1.5px solid $box_shd;
+        //   @include flexDisplay(center, center);
+        //   height: 200px;
+        //   text-align: center;
+        //   background-color: $bg_sub;
+        //   margin-bottom: 20px;
+
+        //   p,
+        //   a,
+        //   h3 {
+        //     margin-bottom: 10px;
+
+        //     letter-spacing: 0.1rem;
+        //   }
+
+        //   a {
+        //     background-color: $spc_clr;
+        //     color: $txt_clr2;
+        //     padding: 10px 30px;
+        //     display: inline-block;
+        //     margin-bottom: 0;
+        //   }
+        // }
+
+        .sort_wrapper {
+          text-align: right;
+
+          select {
+            margin-left: 10px;
+            padding: 5px 10px;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .articles_wrapper {
+        .article_wrapper {
+          &:not(.article_wrapper:last-of-type) {
+            margin-bottom: 30px;
+          }
+
+          &:hover .title {
+            color: $acc_clr;
+          }
+
+          &:hover .link {
+            background-color: $acc_clr !important;
+          }
+
+          &:hover .img_wrapper::after {
+            opacity: 0;
+          }
+
+          .img_wrapper {
+            position: relative;
+
+            &::after {
+              content: '';
+              @include position(absolute, left, top, 0px, 0px);
+              width: 100%;
+              height: 100%;
+              background-color: #000;
+              opacity: 0.5;
+              @include transitionAll($fmid_trans);
+            }
+
+            img {
+              height: 100%;
+            }
+          }
+
+          .authors {
+            color: $txt_clr3;
+            font-style: italic;
+
+            .author {
+              @include flexDisplay(center, flex-start);
+
+              .name {
+                margin-left: 10px;
+              }
+            }
+
+            .co_authors {
+              margin-top: 3px;
+
+              .heading {
+                margin-right: 5px;
+                font-style: normal;
+              }
+
+              .co_name {
+                margin-right: 10px;
+              }
+            }
+          }
+
+          .title {
+            font-size: $txt_size6;
+            color: $txt_clr3;
+          }
+
+          .desc {
+            letter-spacing: 0.1rem;
+            line-height: 2.5rem;
+          }
+
+          .bottom_wrapper {
+            @include flexDisplay(center, space-between);
+
+            .bot_right {
+              color: $txt_clr3;
+
+              .vol {
+                margin-right: 7px;
+                padding-right: 7px;
+                border-right: 1.5px solid $box_shd_tint;
+              }
+
+              .category {
+                margin-right: 50px;
+                text-transform: capitalize;
+              }
+            }
+
+            .link {
+              display: inline-block;
+              padding: 10px 25px;
+              background-color: $txt_clr3;
+              color: $txt_clr2;
+              margin-top: 10px;
+              border-radius: $brd_rad_small;
+            }
+          }
+        }
+      }
+    }
+  }
+}

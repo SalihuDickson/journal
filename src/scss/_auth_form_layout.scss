@@ -1,0 +1,147 @@
+.auth_sect {
+  @include position(fixed, left, top, 0px, 0px);
+  width: 100%;
+  height: 100vh;
+  background-color: $bg_main;
+  z-index: 100;
+  overflow-y: auto;
+  display: flex;
+  padding-block: 20px;
+
+  &_wrapper {
+    width: 500px;
+    background-color: $bg_sub;
+    box-shadow: 0 0 5px $box_shd_tint;
+    overflow: hidden;
+    border-radius: $brd_rad;
+    padding: 20px;
+    margin: auto;
+  }
+
+  .auth_heading {
+    position: relative;
+    text-align: center;
+    color: $acc_clr;
+    font-size: $txt_size6;
+    letter-spacing: 0.1rem;
+    margin-bottom: 20px;
+
+    .redirect_btn {
+      @include position(absolute, right, top, 0px, 50%);
+      background-color: $bg_main;
+      padding: 5px 10px 0;
+      border-radius: $brd_rad;
+    }
+  }
+
+  .auth_form {
+    @include flexDisplay(flex-start, center, column);
+
+    .form_opt {
+      width: 100%;
+      margin-top: 20px;
+      position: relative;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      input {
+        border: 1px solid $box_shd;
+        width: 100%;
+        display: block;
+        padding: 10px 20px;
+        border-radius: $brd_rad_small;
+
+        font-size: $txt_size3;
+
+        &:focus {
+          border-color: $acc_clr;
+        }
+      }
+
+      .pword_visible_toggle {
+        @include position(absolute, right, top, 10px, 50%);
+        padding: 5px;
+        font-size: $txt_size2;
+      }
+    }
+
+    .add_action_part {
+      @include flexDisplay(center, space-between);
+      width: 100%;
+      margin: 20px 0;
+
+      font-size: $txt_size1;
+      color: $acc_clr;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    .auth_submit_btn {
+      margin: 20px auto 0;
+      background-color: $acc_clr;
+      padding: 10px 25px;
+      color: $txt_clr2;
+      border-radius: $brd_rad_small;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  .some_text {
+    text-align: center;
+    padding: 20px 0;
+
+    font-size: $txt_size1;
+    color: $txt_clr3;
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      content: '';
+      width: 100%;
+      height: 0.5px;
+      @include position(absolute, left, top, 0px, 50%);
+      background-color: $box_shd_tint;
+      z-index: -1;
+    }
+
+    span {
+      background-color: $bg_sub;
+      padding: 0 20px;
+      border: 0.5px solid transparent;
+      border-left-color: $box_shd_tint;
+      border-right-color: $box_shd_tint;
+    }
+  }
+
+  .opt_btn {
+    display: inline-block;
+    @include position(relative, left, top, 50%, 0px);
+    background-color: $bg_main;
+    padding: 10px 25px;
+    border-radius: $brd_rad;
+    letter-spacing: 0.1rem;
+    font-size: $txt_size3;
+    box-shadow: 0 0 8px $box_shd;
+
+    &:hover {
+      color: $spc_clr;
+    }
+
+    span {
+      color: $spc_clr;
+    }
+  }
+}
+
+#login_sect {
+  .login_opts {
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: $brd_rad_small;
+    font-size: $txt_size2;
+  }
+}

@@ -1,0 +1,63 @@
+#about_sect {
+  .sect_heading {
+    margin-top: 30px;
+  }
+  .about_heading {
+    font-size: $txt_size3;
+    color: $txt_clr3;
+    margin-bottom: 10px;
+
+    hr {
+      width: 8%;
+      border: none;
+      height: 1px;
+      background-color: $txt_clr3;
+      margin-top: 5px;
+    }
+  }
+
+  .brief_wrapper,
+  .aims_wrapper {
+    .img_wrapper {
+      width: 40%;
+      height: 500px;
+      float: left;
+      margin: 0 15px 15px 0;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .brief_info_wrapper,
+    .aims_info_wrapper {
+      p {
+        margin-bottom: 10px;
+        line-height: 3rem;
+      }
+    }
+  }
+
+  .aims_wrapper {
+    margin-top: 50px;
+
+    .img_wrapper {
+      float: right;
+      height: 250px;
+    }
+  }
+
+  a {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    color: $spc_clr;
+    text-transform: uppercase;
+    padding: 20px 0;
+    transform: translateX(-50%);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+#email_ver_sect {
+  @include position(fixed, left, top, 0px, 0px);
+  width: 100%;
+  height: 100vh;
+  background-color: $bg_over;
+  z-index: 15;
+  display: flex;
+
+  .center_sect {
+    margin: auto;
+    width: 500px;
+    background-color: $bg_sub;
+    height: 500px;
+    @include flexDisplay(center, center, column);
+
+    h2 {
+      color: $txt_clr3;
+      font-size: $txt_size9;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: $txt_size3;
+      margin-bottom: 10px;
+    }
+
+    button {
+      margin-inline: 10px;
+      padding: 10px 20px;
+      border-radius: $brd_rad_small;
+      letter-spacing: 0.1rem;
+
+      &.ver_btn {
+        background-color: $spc_clr;
+        color: $txt_clr2;
+
+        &:hover {
+          background-color: darken($spc_clr, 10);
+        }
+      }
+
+      &.logout_btn {
+        color: $spc_clr;
+        border: 1px solid $spc_clr;
+
+        &:hover {
+          background-color: $bg_main;
+        }
+      }
+    }
+  }
+}

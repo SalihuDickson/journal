@@ -1,0 +1,25 @@
+#sub_guide_sect {
+  line-height: 2.6rem;
+  font-size: $txt_size3;
+
+  h4 {
+    font-size: $txt_size4;
+    margin: 20px 0 10px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .submit_btn {
+    background-color: $acc_clr;
+    padding: 10px 20px;
+    display: inline-block;
+    color: $txt_clr2;
+    margin: 5px 0 10px;
+
+    &:hover {
+      background-color: darken($acc_clr, 10);
+    }
+  }
+}

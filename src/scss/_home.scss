@@ -1,0 +1,51 @@
+// * Styles for Hero is in a seperate partial
+#home_sect {
+  .sect_heading {
+    margin-top: 30px;
+  }
+
+  .top_articles_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+
+    .top_article_wrapper {
+      border-bottom: 1px solid $box_shd_tint;
+      padding-bottom: 20px;
+      .title {
+        color: $acc_clr;
+        text-decoration: underline;
+        font-size: $txt_size5;
+        line-height: 3.2rem;
+        margin-bottom: 10px;
+        display: block;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .bottom {
+        @include flexDisplay(center, space-between);
+        color: $txt_clr3;
+
+        .author_name {
+          font-weight: bold;
+        }
+
+        .date_created {
+          font-style: italic;
+          padding-left: 10px;
+          margin-left: 10px;
+          border-left: 1px solid $box_shd;
+        }
+
+        .category {
+          text-transform: capitalize;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

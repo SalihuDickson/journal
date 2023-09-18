@@ -1,0 +1,78 @@
+// * Variables
+$vfast_trans: 0.1s;
+$fast_trans: 0.2s;
+$fmid_trans: 0.3s;
+$mid_trans: 0.4s;
+$mslow_trans: 0.5s;
+$slow_trans: 0.6s;
+$txt_size0: 1.2rem;
+$txt_size1: 1.4rem;
+$txt_size2: 1.6rem;
+$txt_size3: 1.8rem;
+$txt_size4: 2rem;
+$txt_size5: 2.2rem;
+$txt_size6: 2.4rem;
+$txt_size7: 2.6rem;
+$txt_size8: 2.8rem;
+$txt_size9: 3rem;
+$txt_size_xlrg: 4.5rem;
+$bg_main: #ffffff;
+$bg_sub: #edf2f6;
+$bg_over: #0021364f;
+$bg_sub2: #edf2f636;
+$spc_clr: #d30015;
+$spc_clr_tint: #d3001571;
+$acc_clr: #337ab7;
+$box_shd: #808080;
+$box_shd_tint: #80808046;
+$brd_rad: 10px;
+$brd_rad_small: 5px;
+$brd_rad_big: 15px;
+$txt_clr1: #000;
+$txt_clr2: #fff;
+$txt_clr3: #4e4e4e;
+
+// * Mixins
+@mixin transitionAll($duration) {
+  transition: all ease $duration;
+}
+
+@mixin transitionCustom($prop, $mode, $duration) {
+  transition: $prop $mode $duration;
+}
+
+@mixin flexDisplay($align, $just, $flex_dir: row) {
+  display: flex;
+  flex-direction: $flex_dir;
+  justify-content: $just;
+  align-items: $align;
+}
+
+@mixin position($type, $x, $y, $x_val, $y_val, $cancel_trans: false) {
+  $x_trans: -$x_val;
+  $y_trans: -$y_val;
+
+  @if $x == right {
+    $x_trans: $x_val;
+  }
+  @if $y == bottom {
+    $y_trans: $y_val;
+  }
+
+  @if (unit($x_val) == px or $cancel_trans == x) {
+    $x_trans: 0;
+  }
+  @if (unit($y_val) == px or $cancel_trans == y) {
+    $y_trans: 0;
+  }
+
+  @if $cancel_trans == both {
+    $x_trans: 0;
+    $y_trans: 0;
+  }
+
+  position: $type;
+  #{$x}: $x_val;
+  #{$y}: $y_val;
+  transform: translate($x_trans, $y_trans);
+}

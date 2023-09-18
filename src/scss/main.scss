@@ -1,0 +1,68 @@
+@import 'config';
+@import 'defaults';
+@import 'navbar';
+@import 'footer';
+@import 'hero';
+@import 'home';
+@import 'about';
+@import 'articles';
+@import 'team';
+@import 'auth_form_layout';
+@import 'single_article';
+@import 'dashboard_layout';
+@import 'dbl_layout';
+@import 'dashboard';
+@import 'submit_guide';
+@import 'submit';
+@import 'verification';
+
+.set_acct_sect {
+  @include position(fixed, left, top, 0px, 0px);
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  z-index: 150;
+  background-color: $bg_over;
+  display: flex;
+
+  .set_acct_form {
+    background-color: $bg_main;
+    margin: auto;
+    width: 500px;
+    padding: 20px;
+    text-align: center;
+
+    .title {
+      text-align: center;
+      color: $txt_clr3;
+      margin-bottom: 20px;
+    }
+
+    .form_opts {
+      .form_opt {
+        margin-bottom: 10px;
+
+        input {
+          border: 1.5px solid $box_shd;
+          display: block;
+          width: 100%;
+          padding: 10px 15px;
+          font-size: $txt_size3;
+
+          &:focus {
+            border-color: $acc_clr;
+            border-radius: $brd_rad_small;
+          }
+        }
+      }
+    }
+
+    .submit_btn {
+      background-color: $acc_clr;
+      padding: 10px 20px;
+      color: $txt_clr2;
+      border-radius: $brd_rad_small;
+      margin-top: 20px;
+    }
+  }
+}
